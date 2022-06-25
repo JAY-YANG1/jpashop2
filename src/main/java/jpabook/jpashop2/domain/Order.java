@@ -18,10 +18,10 @@ public class Order {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "member_id")
+    @JoinColumn(name = "member_id") // 여러개의 오더가 하나의 멤버에 들어갈 수 있음 (다대일의 관계)
     private Member member;
 
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "order") // 하나의 오더가 여러개의 아이템을 가질수 있음 (일대다의 관계)
     private List<OrderItem> orderItems = new ArrayList<>();
 
     @OneToOne

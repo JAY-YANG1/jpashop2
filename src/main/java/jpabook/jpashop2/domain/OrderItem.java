@@ -15,7 +15,7 @@ public class OrderItem {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "item_id")
+    @JoinColumn(name = "item_id") // 여러개의 아이템이 하나의 오더에 들어갈 수 있음 (다대일의 관계)
     private Item item;
 
     @ManyToOne
