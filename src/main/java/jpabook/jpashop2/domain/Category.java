@@ -18,7 +18,7 @@ public class Category {
 
     private String name;
 
-    @ManyToMany(mappedBy = "items")
+    @ManyToMany(mappedBy = "items")  // 다대다 매핑 예제 (실무에서는 절대 사용하지 않음)
     private List<Item> items = new ArrayList<>();
 
 

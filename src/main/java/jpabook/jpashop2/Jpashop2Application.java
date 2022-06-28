@@ -1,6 +1,5 @@
 package jpabook.jpashop2;
 
-import ch.qos.logback.core.net.SyslogOutputStream;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -10,6 +9,5 @@ public class Jpashop2Application {
 	public static void main(String[] args) {
 		SpringApplication.run(Jpashop2Application.class, args);
 	}
-
 
 }
