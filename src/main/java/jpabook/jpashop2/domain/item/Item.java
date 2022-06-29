@@ -23,17 +23,7 @@ public abstract class Item {
     private int price;
     private int stockQuantity;
 
-    @ManyToMany // 다대다 매핑 예제 (실무에서는 절대 사용하지 않음)
-    @JoinTable(name = "category_item",
-            joinColumns = @JoinColumn(name = "category_id"),
-            inverseJoinColumns = @JoinColumn(name = "item_id"))
+    @ManyToMany(mappedBy = "items") // 다대다 매핑 예제 (실무에서는 절대 사용하지 않음)
     private List<Category> categories = new ArrayList<>();
-
-    @ManyToOne
-    @JoinColumn(name = "parent_id")
-    private Category parent;
-
-    @OneToMany(mappedBy = "parent")
-    private List<Category> child = new ArrayList<>();
 
 }

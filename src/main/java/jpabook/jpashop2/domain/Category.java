@@ -13,13 +13,22 @@ import java.util.List;
 public class Category {
 
     @Id @GeneratedValue
-    @Column(name = "category id")
+    @Column(name = "category_id")
     private Long id;
 
     private String name;
 
-    @ManyToMany(mappedBy = "items")  // 다대다 매핑 예제 (실무에서는 절대 사용하지 않음)
+    @ManyToMany  // 다대다 매핑 예제 (실무에서는 절대 사용하지 않음)
+    @JoinTable(name = "category_item",
+            joinColumns = @JoinColumn(name = "category_id"),
+            inverseJoinColumns = @JoinColumn(name = "item_id"))
     private List<Item> items = new ArrayList<>();
 
+    @ManyToOne
+    @JoinColumn(name = "parent_id")
+    private Category parent;
+
+    @OneToMany(mappedBy = "parent")
+    private List<Category> child = new ArrayList<>();
 
 }
